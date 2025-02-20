@@ -1,0 +1,13 @@
+# Ignorar archivos generados por Maven (backend)
+backend/target/
+backend/.classpath
+backend/.project
+backend/.settings/
+
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración de entornos
+.env
