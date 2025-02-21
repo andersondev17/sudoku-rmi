@@ -196,36 +196,60 @@ public class SudokuClient {
     }
 
     private void displayBoard(int[][] board) {
-        System.out.println("\nTablero Sudoku:");
+        System.out.println("\n         ********   Tablero Sudoku:    ********\n" + //
+                        "");
         int size = board.length;
         int boxSize = (int) Math.sqrt(size);
-
+        
+        
+    
         // Imprimir números de columna
-        System.out.print("   ");
+        System.out.print("     "); // Espacio inicial alineado
         for (int j = 0; j < size; j++) {
             System.out.printf("%2d ", j);
+            if ((j + 1) % boxSize == 0 && j < size - 1) {
+                System.out.print("| ");
+            }
         }
         System.out.println();
-
+        
+        // Línea separadora después de los números de columna
+        printBorderLine(size, boxSize);
+    
+        // Imprimir el tablero
         for (int i = 0; i < size; i++) {
-            if (i > 0 && i % boxSize == 0) {
-                System.out.println("   " + "-".repeat(size * 4));
-            }
-
-            // Imprimir número de fila
-            System.out.printf("%2d ", i);
-
+            // Imprimir número de fila con padding
+            System.out.printf("%2d | ", i);
+    
+            // Imprimir valores de la fila
             for (int j = 0; j < size; j++) {
-                if (j > 0 && j % boxSize == 0) {
+                System.out.printf("%2s ", board[i][j] == 0 ? "·" : board[i][j]);
+                // Separador vertical entre cajas
+                if ((j + 1) % boxSize == 0 && j < size - 1) {
                     System.out.print("| ");
                 }
-                System.out.printf("%2s ", board[i][j] == 0 ? "." : board[i][j]);
             }
             System.out.println();
+    
+            // Línea horizontal después de cada caja
+            if ((i + 1) % boxSize == 0 && i < size - 1) {
+                printBorderLine(size, boxSize);
+            }
         }
+        
+        // Línea inferior
+        printBorderLine(size, boxSize);
     }
-
-    public static void main(String[] args) {
+    
+    private void printBorderLine(int size, int boxSize) {
+        System.out.print("     "); // Alineación con el contenido
+        for (int i = 0; i < size * 3 + boxSize - 1; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+        
+    }
+        public static void main(String[] args) {
         new SudokuClient().connect();
     }
 }
