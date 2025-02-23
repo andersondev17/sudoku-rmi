@@ -160,7 +160,7 @@ public class SudokuClient {
                     makeMove();
                 } else {
                     System.out.println("Esperando al otro jugador...");
-                    Thread.sleep(1000);
+                    Thread.sleep(50000);
                 }
             }
         } catch (Exception e) {
