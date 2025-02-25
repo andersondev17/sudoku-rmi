@@ -142,8 +142,4 @@ public class GameState implements Serializable {
     public void switchTurn() { 
         currentPlayerId = (currentPlayerId == 1) ? 2 : 1; 
     }
-
-    public int getSize() {
-        return size;
-    }
 }
