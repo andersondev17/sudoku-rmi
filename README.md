@@ -113,44 +113,8 @@ classDiagram
 
 
 ```
-## Architecture & Design Patterns
-The project follows a distributed architecture using RMI and WebSockets:
-# 1. Modelo (Model)
-## Game State (GameState.java)
-– Centralizes game logic, ensuring consistent updates within players.
-
-##  (SudokuGenerator.java)
-- Generates random Sudoku tables 
-
-# 2. Servicio (Service)
-## RMI Interface (ISudokuService.java)
-– RMI Interface defining game operations.
-
-## RMI (SudokuServiceImpl.java) 
-– Handles core game logic (moves, turns, board state).
-
-## GameUpdate 
-- Class for messages between server and client
 
 
-# 3. Server
-
-## WebSocket (GameWebSocketServer.java)
-– Notifies clients in real time about game updates.
-
-## SudokuServer.java
-
-- Server entry point that starts RMI and WebSocket server.
-
-# 4 Client
-
-## SudokuClient.java
-
-- Client connected to server to play Sudoku
-
-
-
-Provides UI to create/join games and interact with the game state.
 
 ## Running the Project
 ## 1️⃣ Start the Backend Server (RMI & WebSocket)
@@ -189,6 +153,47 @@ mvn exec:java -Dexec.mainClass="com.sudoku.client.SudokuClient"
 ```
 
 - This connects an additional player to the same game session.
+
+
+
+## Architecture & Design Patterns
+The project follows a distributed architecture using RMI and WebSockets:
+# 1. Modelo (Model)
+## Game State (GameState.java)
+– Centralizes game logic, ensuring consistent updates within players.
+
+##  (SudokuGenerator.java)
+- Generates random Sudoku tables 
+
+# 2. Servicio (Service)
+## RMI Interface (ISudokuService.java)
+– RMI Interface defining game operations.
+
+## RMI (SudokuServiceImpl.java) 
+– Handles core game logic (moves, turns, board state).
+
+## GameUpdate 
+- Class for messages between server and client
+
+
+# 3. Server
+
+## WebSocket (GameWebSocketServer.java)
+– Notifies clients in real time about game updates.
+
+## SudokuServer.java
+
+- Server entry point that starts RMI and WebSocket server.
+
+# 4 Client
+
+## SudokuClient.java
+
+- Client connected to server to play Sudoku
+
+
+
+Provides UI to create/join games and interact with the game state.
 
 Frontend (Next.js) Setup
 Coming Soon: The React/Next.js client is under development. Once integrated, it will allow users to interact with the game via a browser.
