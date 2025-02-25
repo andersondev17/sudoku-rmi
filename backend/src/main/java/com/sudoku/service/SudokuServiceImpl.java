@@ -148,7 +148,7 @@ public class SudokuServiceImpl extends UnicastRemoteObject implements ISudokuSer
 
             return game.getCurrentPlayerId() == playerId ? 
                    "Es tu turno" : 
-                   "📄🔢🇯🇵";
+                   "📄🔢 Esperando al otro jugador...";
         } catch (Exception e) {
             throw new RemoteException("Error al obtener estado del juego", e);
         }

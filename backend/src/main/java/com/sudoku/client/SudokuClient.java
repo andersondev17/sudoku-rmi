@@ -159,8 +159,7 @@ public class SudokuClient {
                 if (service.getCurrentPlayerId() == playerId) {
                     makeMove();
                 } else {
-                    System.out.println("Esperando al otro jugador...");
-                    Thread.sleep(50000);
+                    Thread.sleep(10000);
                 }
             }
         } catch (Exception e) {
